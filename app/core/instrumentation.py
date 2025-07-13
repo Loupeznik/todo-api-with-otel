@@ -59,14 +59,12 @@ def setup_instrumentation():
         for handler in root_logger.handlers[:]:
             root_logger.removeHandler(handler)
 
-        # Configure basic logging
         logging.basicConfig(
             level=logging.INFO,
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             handlers=[]
         )
 
-        # Set up OpenTelemetry logging
         logger_provider = LoggerProvider(resource=resource)
         set_logger_provider(logger_provider)
 

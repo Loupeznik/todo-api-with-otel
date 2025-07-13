@@ -14,7 +14,6 @@ logger = logging.getLogger()
 def health_check(db: Session = Depends(deps.get_db)):
     try:
         db.execute(text("SELECT 1"))
-        logger.info("Database connection is healthy.")
         return {"status": "ok"}
     except Exception as e:
         logger.error(f"Database connection failed: {e}")

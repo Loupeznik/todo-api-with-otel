@@ -22,7 +22,6 @@ logger = logging.getLogger()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     setup_instrumentation()
-    logger.info("Application startup complete")
     yield
 
 
